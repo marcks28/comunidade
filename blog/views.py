@@ -11,3 +11,8 @@ class Index(generic.ListView):
         return Post.objects.filter(
             published_date__lte=timezone.now()
         ).order_by('-created_date')[:5]
+
+
+class Detalhes(generic.DetailView):
+    model = Post
+    template_name = 'blog/detalhes.html'
